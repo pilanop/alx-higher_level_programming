@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if not a_dictionary:
-        return (None)
+    highest = 0
+    highest_name = ''
 
-    return (max(a_dictionary, key=a_dictionary.get))
+    if a_dictionary is None:
+        return None
+
+    for i in a_dictionary.items():
+        pair = list(i)
+        if pair[1] > highest:
+            highest = pair[1]
+            highest_name = pair[0]
+
+    return highest_name
