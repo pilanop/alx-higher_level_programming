@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""empty class Square
+"""
+
 
 class Square:
-    """
-    The `Square` class represents a square shape.
-    """
+    """empty class Square"""
+
     pass
