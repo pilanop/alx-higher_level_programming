@@ -20,9 +20,9 @@ class Square:
         """
         Initializes a Square object.
 
-        Args:
-            size (int, optional): The size of the square. Default is 0.
-            position (tuple, optional): The position of the square. Default is (0, 0).
+        Args: size (int, optional): The size of the square. Default is 0.
+        position (tuple, optional): The position of the square. Default is (
+        0, 0).
         """
         self.size = size
         self.position = position
