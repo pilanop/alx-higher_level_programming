@@ -120,5 +120,3 @@ class Square:
                 print("#", end="")
 
             print("")
-
-    pass
