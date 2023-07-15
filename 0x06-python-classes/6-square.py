@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A class `Square` that defines a square by: (based on /5-square.py)
+A class `Square` that defines a square
 """
 
 
@@ -13,7 +13,7 @@ class Square:
 
     Attributes:
         __size (int): The size of the square.
-        __position (int): The position of the square.
+        __position (tuple): The position of the square.
     """
 
     def __init__(self, size=0, position=(0, 0)):
@@ -22,10 +22,10 @@ class Square:
 
         Args:
             size (int, optional): The size of the square. Default is 0.
-            position (int, optional): The position of the square. Default is 0.
+            position (tuple, optional): The position of the square. Default is (0, 0).
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -47,12 +47,11 @@ class Square:
             TypeError: If the provided value is not an integer.
             ValueError: If the provided value is less than 0.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -77,18 +76,21 @@ class Square:
             TypeError: If the value is not a tuple of 2 positive integers.
 
         """
-        if isinstance(value, tuple) and len(value) == 2:
-            if value[0] >= 0 and value[1] >= 0:
-                self.__position = value
-        else:
-            raise TypeError("position must be a tuple of 2 positive integers")
+        error_message = "position must be a tuple of 2 positive integers"
+        if not (isinstance(value, tuple) and len(value) == 2):
+            raise TypeError(error_message)
+
+        if not all(isinstance(val, int) and val >= 0 for val in value):
+            raise TypeError(error_message)
+
+        self.__position = value
 
     def area(self):
         """
         Calculates the area of a square.
 
         Returns:
-                float: The area of the square.
+                int: The area of the square.
         """
         return self.__size**2
 
@@ -102,21 +104,14 @@ class Square:
         Returns:
             None
         """
-        if self.__size == 0:
-            print("")
-            return
+        for _ in range(self.__position[1] if self.__size else 1):
+            print()
 
-        for row in range(self.__size):
-            if self.__position[1] > 0 and row == 0:
-                for _ in range(self.__position[1]):
-                    print("")
-
-            for column in range(self.__size):
-                if self.__position[0] > 0 and column == 0:
-                    for _ in range(self.__position[0]):
-                        print(" ", end="")
-                print("#", end="")
-
-            print("")
-
-    pass
+        print(
+            "\n".join(
+                [
+                    " " * self.__position[0] + "#" * self.__size
+                    for _ in range(self.__size)
+                ]
+            )
+        )
