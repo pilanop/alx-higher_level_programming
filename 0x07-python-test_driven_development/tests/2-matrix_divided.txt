@@ -1,0 +1,44 @@
+# Test the matrix_divided function.
+
+# Test 1:
+# Normal scenario where each element in the matrix is divided by a number (2, in this case).
+# We expect every element in the matrix to be halved and rounded to 2 decimal places.
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 2)
+    [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+# Test 2:
+# Division by 1 should return the same matrix.
+    >>> matrix_divided(matrix, 1)
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+# Test 3:
+# Test if the function can handle non-integer or non-float elements in the matrix.
+# An exception is expected here because the third element of the first row is a string.
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, '3'], [4, 5, 6]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test 4:
+# Test if the function can handle rows of different sizes.
+# An exception is expected here because the second row contains fewer elements than the first row.
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3], [4, 5]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+# Test 5:
+# Test if the function can handle a divisor of 0.
+# An exception is expected here because division by zero is not allowed.
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ...
+    TypeError: division by zero
