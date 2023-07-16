@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-
-"""a function that adds 2 integers."""
+"""
+This add_integer function performs integer addition of two input values.
+It accepts either integers or floats (which are typecast to integers) as
+arguments, and raises a TypeError if any other type of input is given.
+"""
 
 
 def add_integer(a, b=98):
