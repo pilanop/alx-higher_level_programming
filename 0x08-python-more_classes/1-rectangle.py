@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""A class Rectangle that defines a rectangle"""
+"""
+An empty class Rectangle that defines a rectangle
+"""
 
 
 class Rectangle:
-	"""A class representing a rectangle."""
+	"""
+	A class representing a rectangle
+	"""
 
 	def __init__(self, width=0, height=0):
 		"""Initialize a new Rectangle.
