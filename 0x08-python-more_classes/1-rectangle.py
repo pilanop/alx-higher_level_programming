@@ -18,7 +18,6 @@ class Rectangle:
 		width(value): Setter method for setting the width of the rectangle.
 		height(): Getter method for retrieving the height of the rectangle.
 		height(value): Setter method for setting the height of the rectangle.
-
 	"""
 
 	def __init__(self, width=0, height=0):
@@ -91,4 +90,3 @@ class Rectangle:
 			raise ValueError("height must be >= 0")
 		self.__height = value
 
-	pass
