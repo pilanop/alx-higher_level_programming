@@ -34,12 +34,6 @@ class Rectangle:
 		"""
 		Initializes a Rectangle object with the given width and
 		height.
-
-		Args:
-			width (float, optional): The width of the rectangle.
-			Defaults 0.
-			height (float, optional): The height of the rectangle.
-			Defaults 0.
 		"""
 		self.width = width
 		self.height = height
@@ -48,9 +42,6 @@ class Rectangle:
 	def width(self):
 		"""
 		Returns the width of the rectangle.
-
-		Returns:
-			The width of the rectangle.
 		"""
 		return self.__width
 
@@ -59,16 +50,9 @@ class Rectangle:
 		"""
 		Sets the width of the Rectangle object.
 
-		Args:
-			value (int): The value to set as the width of
-			the Rectangle.
-
 		Raises:
 			TypeError: If value is not an integer.
 			ValueError: If value is less than 0.
-
-		Returns:
-			None
 		"""
 		if not isinstance(value, int):
 			raise TypeError("width must be an integer")
@@ -80,9 +64,6 @@ class Rectangle:
 	def height(self):
 		"""
 		Returns the height of the rectangle.
-
-		Returns:
-			The height of the rectangle.
 		"""
 		return self.__height
 
@@ -90,10 +71,6 @@ class Rectangle:
 	def height(self, value):
 		"""
 		Sets the height of the rectangle.
-
-		Args:
-			value (int): The value to set as the height of
-			the rectangle.
 
 		Raises:
 			TypeError: If value is not an integer.
