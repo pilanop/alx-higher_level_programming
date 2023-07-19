@@ -9,8 +9,8 @@ class Rectangle:
 	A class representing a rectangle.
 
 	Attributes:
-		width (float): The width of the rectangle.
-		height (float): The height of the rectangle.
+		width (int): The width of the rectangle.
+		height (int): The height of the rectangle.
 	"""
 
 	def __init__(self, width=0, height=0):
