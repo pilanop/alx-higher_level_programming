@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-"""
-A class Rectangle that defines a rectangle by: (based on `0-rectangle.py`)
+"""A class Rectangle that defines a rectangle by: (based on `0-rectangle.py`)
 """
 
 
@@ -12,22 +11,6 @@ class Rectangle:
 	Attributes:
 		width (float): The width of the rectangle.
 		height (float): The height of the rectangle.
-
-	Methods:
-		init__(self, width=0, height=0):
-			Initializes a Rectangle object with the given width and height.
-
-		width(self):
-			Returns the width of the rectangle.
-
-		width(self, value):
-			Sets the width of the Rectangle object.
-
-		height(self):
-			Returns the height of the rectangle.
-
-		height(self, value):
-			Sets the height of the rectangle.
 	"""
 
 	def __init__(self, width=0, height=0):
