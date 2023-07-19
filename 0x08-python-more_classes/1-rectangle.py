@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""A class Rectangle that defines a rectangle by: (based on `0-rectangle.py`)
+"""A class Rectangle that defines a rectangle (based on 0-rectangle.py)
 """
 
 
@@ -15,8 +15,14 @@ class Rectangle:
 
 	def __init__(self, width=0, height=0):
 		"""
-		Initializes a Rectangle object with the given width and
-		height.
+		Initializes a Rectangle object with the given width and height.
+
+		Args:
+			width (int, optional): The width of the Rectangle.
+			Defaults to 0.
+			height (int, optional): The height of the Rectangle.
+			Defaults to 0.
+
 		"""
 		self.width = width
 		self.height = height
