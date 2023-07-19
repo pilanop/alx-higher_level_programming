@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 A class Rectangle that defines a rectangle by: (based on `0-rectangle.py`)
 """
@@ -14,19 +15,26 @@ class Rectangle:
 		__height (int): The height of the rectangle.
 
 	Methods:
-		width(): Getter method for retrieving the width of the rectangle.
-		width(value): Setter method for setting the width of the rectangle.
-		height(): Getter method for retrieving the height of the rectangle.
-		height(value): Setter method for setting the height of the rectangle.
+		width(): Getter method for retrieving the width of
+		the rectangle.
+		width(value): Setter method for setting the width of
+		the rectangle.
+		height(): Getter method for retrieving the height of
+		the rectangle.
+		height(value): Setter method for setting the height of
+		the rectangle.
 	"""
 
 	def __init__(self, width=0, height=0):
 		"""
-		Initializes a Rectangle object with the given width and height.
+		Initializes a Rectangle object with the given width and
+		height.
 
 		Args:
-			width (float, optional): The width of the rectangle. Defaults 0.
-			height (float, optional): The height of the rectangle. Defaults 0.
+			width (float, optional): The width of the rectangle.
+			Defaults 0.
+			height (float, optional): The height of the rectangle.
+			Defaults 0.
 		"""
 		self.width = width
 		self.height = height
@@ -47,7 +55,8 @@ class Rectangle:
 		Sets the width of the Rectangle object.
 
 		Args:
-			value (int): The value to set as the width of the Rectangle.
+			value (int): The value to set as the width of
+			the Rectangle.
 
 		Raises:
 			TypeError: If value is not an integer.
@@ -78,7 +87,8 @@ class Rectangle:
 		Sets the height of the rectangle.
 
 		Args:
-			value (int): The value to set as the height of the rectangle.
+			value (int): The value to set as the height of
+			the rectangle.
 
 		Raises:
 			TypeError: If value is not an integer.
