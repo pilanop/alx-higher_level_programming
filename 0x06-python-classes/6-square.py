@@ -24,8 +24,8 @@ class Square:
             size (int, optional): The size of the square. Default is 0.
             position (int, optional): The position of the square. Default is 0.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
