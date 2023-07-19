@@ -7,22 +7,27 @@ A class Rectangle that defines a rectangle by: (based on `0-rectangle.py`)
 
 class Rectangle:
 	"""
-
-	Class representing a Rectangle.
+	A class representing a rectangle.
 
 	Attributes:
-		__width (int): The width of the rectangle.
-		__height (int): The height of the rectangle.
+		width (float): The width of the rectangle.
+		height (float): The height of the rectangle.
 
 	Methods:
-		width(): Getter method for retrieving the width of
-		the rectangle.
-		width(value): Setter method for setting the width of
-		the rectangle.
-		height(): Getter method for retrieving the height of
-		the rectangle.
-		height(value): Setter method for setting the height of
-		the rectangle.
+		init__(self, width=0, height=0):
+			Initializes a Rectangle object with the given width and height.
+
+		width(self):
+			Returns the width of the rectangle.
+
+		width(self, value):
+			Sets the width of the Rectangle object.
+
+		height(self):
+			Returns the height of the rectangle.
+
+		height(self, value):
+			Sets the height of the rectangle.
 	"""
 
 	def __init__(self, width=0, height=0):
@@ -99,4 +104,3 @@ class Rectangle:
 		if value < 0:
 			raise ValueError("height must be >= 0")
 		self.__height = value
-
