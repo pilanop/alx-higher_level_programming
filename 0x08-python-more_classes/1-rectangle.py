@@ -29,8 +29,8 @@ class Rectangle:
 			width (float, optional): The width of the rectangle. Defaults 0.
 			height (float, optional): The height of the rectangle. Defaults 0.
 		"""
-		self.__width = width
-		self.__height = height
+		self.width = width
+		self.height = height
 
 	@property
 	def width(self):
@@ -54,7 +54,7 @@ class Rectangle:
 			TypeError: If value is not an integer.
 			ValueError: If value is less than 0.
 
-		Returns
+		Returns:
 			None
 		"""
 		if not isinstance(value, int):
