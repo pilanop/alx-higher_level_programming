@@ -3,6 +3,7 @@
 """Defines a base model class."""
 import json
 
+
 class Base:
     """Base model.
 
@@ -68,7 +69,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Return a class instantied from a dictionary of attributes.
+        """Return a class instanced from a dictionary of attributes.
 
         Args:
             **dictionary (dict): Key/value pairs of attributes to initialize.
