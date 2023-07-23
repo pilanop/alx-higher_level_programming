@@ -1,0 +1,18 @@
+This is a doctest for the MyList class in an external .txt file.
+
+To run this doctest, enter the following command in the terminal:
+
+    python -m doctest -v doctest_file.txt
+
+Test Case 1: Testing `print_sorted()` on a non-empty list.
+>>> MyList1 = __import__('1-my_list').MyList
+>>> my_list1 = MyList1()
+>>> my_list1.extend([5, 3, 4, 1, 2])  # Adding elements
+>>> my_list1.print_sorted()  # Expected output: [1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5]
+
+Test Case 2: Testing `print_sorted()` on an empty list.
+>>> MyList2 = __import__('1-my_list').MyList
+>>> my_list2 = MyList2()
+>>> my_list2.print_sorted()  # Expected output: []
+[]
