@@ -27,7 +27,18 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
+        """
+        Converts the instance variables of a Student object into a JSON-like
+        dictionary.
 
+        Args:
+            attrs (list): A list of strings representing the desired
+            instance variables to include in the JSON-like dictionary.
+
+        Returns:
+            dict: A JSON-like dictionary containing the selected
+            instance variables and their respective values.
+        """
         if isinstance(attrs, list):
             if all(isinstance(item, str) for item in attrs):
                 new_dict = {}
