@@ -117,5 +117,24 @@ class TestRectangle_Display0(unittest.TestCase):
         sys.stdout = self.saved_stdout
 
 
+class TestRectangle_Str(unittest.TestCase):
+    """
+    Unit test for the `__str__` method in the `Rectangle` class.
+    """
+
+    def setUp(self):
+        self.rect1 = Rectangle(5, 6)
+        self.rect2 = Rectangle(7, 8, 1, 2, 10)
+
+    def test_str(self):
+        self.assertEqual(str(self.rect1), "[Rectangle] (1) 0/0 - 5/6")
+
+    def test_str1(self):
+        self.assertEqual(str(self.rect2), "[Rectangle] (10) 1/2 - 7/8")
+
+    def tearDown(self):
+        pass
+
+
 if __name__ == "__main__":
     unittest.main()
