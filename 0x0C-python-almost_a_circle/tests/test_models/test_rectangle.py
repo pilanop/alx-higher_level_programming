@@ -136,5 +136,43 @@ class TestRectangle_Str(unittest.TestCase):
         pass
 
 
+class TestRectangle_Display1(unittest.TestCase):
+    """
+    Unit test for the `display` method in the `Rectangle` class.
+    """
+    def setUp(self):
+        self.rect1 = Rectangle(3, 2, 1, 2)
+        self.rect2 = Rectangle(2, 2, 0, 1)
+        self.rect3 = Rectangle(2, 4, 3, 2)
+        self.saved_stdout = sys.stdout
+
+    def test_display(self):
+        out = StringIO()
+        sys.stdout = out
+        self.rect1.display()
+        output = out.getvalue()
+        expected_output = "\n\n ###\n ###\n"
+        self.assertEqual(output, expected_output)
+
+    def test_display2(self):
+        out = StringIO()
+        sys.stdout = out
+        self.rect2.display()
+        output = out.getvalue()
+        expected_output = "\n##\n##\n"
+        self.assertEqual(output, expected_output)
+
+    def test_display3(self):
+        out = StringIO()
+        sys.stdout = out
+        self.rect3.display()
+        output = out.getvalue()
+        expected_output = "\n\n   ##\n   ##\n   ##\n   ##\n"
+        self.assertEqual(output, expected_output)
+
+    def tearDown(self):
+        sys.stdout = self.saved_stdout
+
+
 if __name__ == "__main__":
     unittest.main()
