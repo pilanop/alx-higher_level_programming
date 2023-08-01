@@ -2,7 +2,8 @@
 """
 Defines unittests for models/base.py.
 """
-
+from io import StringIO
+import sys
 import unittest
 
 from models.rectangle import Rectangle
@@ -85,6 +86,35 @@ class TestRectangle_Area_First(unittest.TestCase):
 
     def tearDown(self):
         pass
+
+
+class TestRectangle_Display0(unittest.TestCase):
+    """
+    Unit test for the `display` method in the `Rectangle` class.
+    """
+    def setUp(self):
+        self.rect1 = Rectangle(3, 2)
+        self.rect2 = Rectangle(6, 4)
+        self.saved_stdout = sys.stdout
+
+    def test_display(self):
+        out = StringIO()
+        sys.stdout = out
+        self.rect1.display()
+        output = out.getvalue().strip()
+        expected_output = "###\n###"
+        self.assertEqual(output, expected_output)
+
+    def test_display2(self):
+        out = StringIO()
+        sys.stdout = out
+        self.rect2.display()
+        output = out.getvalue().strip()
+        expected_output = "######\n######\n######\n######"
+        self.assertEqual(output, expected_output)
+
+    def tearDown(self):
+        sys.stdout = self.saved_stdout
 
 
 if __name__ == "__main__":
