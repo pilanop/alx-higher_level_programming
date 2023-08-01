@@ -30,10 +30,10 @@ class Rectangle(Base):
             id (int, optional): The id of the rectangle. Defaults to None.
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -54,6 +54,10 @@ class Rectangle(Base):
             value: The value to set as the width.
 
         """
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -76,6 +80,10 @@ class Rectangle(Base):
             value (int): The new height value to set.
 
         """
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -98,6 +106,10 @@ class Rectangle(Base):
             value: The value to set as the x-coordinate of the Rectangle.
 
         """
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -120,4 +132,8 @@ class Rectangle(Base):
             value: The value to set for 'y'.
 
         """
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
