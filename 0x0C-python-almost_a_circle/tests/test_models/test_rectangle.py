@@ -70,5 +70,22 @@ class TestRectangle_Validate_Attributes(unittest.TestCase):
             Rectangle(5, 6, 0, -1)
 
 
+class TestRectangle_Area_First(unittest.TestCase):
+    """
+    4. Area first
+    Unit tests for the `TestRectangle_Area_First` class.
+    """
+    def setUp(self):
+        self.rect1 = Rectangle(5, 6)
+        self.rect2 = Rectangle(7, 8, 1, 2, 10)
+
+    def test_area(self):
+        self.assertEqual(self.rect1.area(), 30)  # Area = width*height
+        self.assertEqual(self.rect2.area(), 56)  # Area = width*height
+
+    def tearDown(self):
+        pass
+
+
 if __name__ == "__main__":
     unittest.main()
