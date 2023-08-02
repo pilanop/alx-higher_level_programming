@@ -93,6 +93,7 @@ class TestRectangle_Area_First(unittest.TestCase):
 
 class TestRectangle_Display0(unittest.TestCase):
     """
+    5. Display #0
     Unit test for the `display` method in the `Rectangle` class.
     """
 
@@ -123,6 +124,7 @@ class TestRectangle_Display0(unittest.TestCase):
 
 class TestRectangle_Str(unittest.TestCase):
     """
+    6. __str__
     Unit test for the `__str__` method in the `Rectangle` class.
     """
 
@@ -142,6 +144,7 @@ class TestRectangle_Str(unittest.TestCase):
 
 class TestRectangle_Display1(unittest.TestCase):
     """
+    7. Display #1
     Unit test for the `display` method in the `Rectangle` class.
     """
     def setUp(self):
@@ -180,6 +183,7 @@ class TestRectangle_Display1(unittest.TestCase):
 
 class TestRectangle_Update0(unittest.TestCase):
     """
+    8. Update #0
     Unit test for the `update` method in the `Rectangle` class.
     """
 
@@ -203,7 +207,6 @@ class TestRectangle_Update0(unittest.TestCase):
         self.assertEqual(self.rect2.y, 5)
 
     def test_update_no_args(self):
-        # No operational change expected as no arguments passed
         original_id = self.rect1.id
         original_width = self.rect1.width
         original_height = self.rect1.height
@@ -217,6 +220,50 @@ class TestRectangle_Update0(unittest.TestCase):
         self.assertEqual(self.rect1.height, original_height)
         self.assertEqual(self.rect1.x, original_x)
         self.assertEqual(self.rect1.y, original_y)
+
+    def tearDown(self):
+        pass
+
+
+class TestRectangle_Update_Kwargs(unittest.TestCase):
+    """
+    9. Update #1
+    Unit test for the kwargs functionality of the `update` method
+    in the `Rectangle` class.
+    """
+
+    def setUp(self):
+        self.rec1 = Rectangle(10, 11)
+        self.rect2 = Rectangle(12, 13, 4, 3, 50)
+
+    def test_update_some_kwargs(self):
+        # Update some attributes
+        self.rec1.update(id=90, width=3, height=2)
+        self.assertEqual(self.rec1.id, 90)
+        self.assertEqual(self.rec1.width, 3)
+        self.assertEqual(self.rec1.height, 2)
+
+    def test_update_all_kwargs(self):
+        # Update all attributes
+        self.rect2.update(id=100, width=4, height=5, x=3, y=2)
+        self.assertEqual(self.rect2.id, 100)
+        self.assertEqual(self.rect2.width, 4)
+        self.assertEqual(self.rect2.height, 5)
+        self.assertEqual(self.rect2.x, 3)
+        self.assertEqual(self.rect2.y, 2)
+
+    def test_update_args_kwargs(self):
+        # Update using both args and kwargs; args should have precedence
+        self.rec1.update(90, 20, 30, id=80, width=3, height=2)
+
+        # Only the values passed in args should have updated
+        self.assertEqual(self.rec1.id, 90)
+        self.assertEqual(self.rec1.width, 20)
+        self.assertEqual(self.rec1.height, 30)
+        # x and y should remain the initial values as they were not updated
+        # through args
+        self.assertEqual(self.rec1.x, 0)
+        self.assertEqual(self.rec1.y, 0)
 
     def tearDown(self):
         pass
