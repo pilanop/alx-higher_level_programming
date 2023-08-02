@@ -13,6 +13,7 @@ class TestSquare(unittest.TestCase):
     10. And now, the Square!
     A TestCase for the Square class.
     """
+
     def setUp(self):
         """
         Set up a new Square instance before each test.
@@ -38,8 +39,10 @@ class TestSquare(unittest.TestCase):
 
 class TestSquare_size(unittest.TestCase):
     """
+    11. Square size
     A TestCase for the Square class size getter and setter.
     """
+
     def setUp(self):
         """
         Set up a new Square instance before each test.
@@ -61,6 +64,33 @@ class TestSquare_size(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             self.square.size = "not an int"
+
+
+class TestSquare_update(unittest.TestCase):
+    """
+    12. Square updates
+    A TestCase for the Square class update method.
+    """
+
+    def setUp(self):
+        """
+        Set up a new Square instance before each test.
+        """
+        self.square = Square(5, 1, 2, 3)
+
+    def test_update_method_with_args(self):
+        """
+        Test the update method with non-keyword arguments.
+        """
+        self.square.update(4, 6, 7, 8)
+        self.assertEqual(str(self.square), '[Square] (4) 7/8 - 6')
+
+    def test_update_method_with_kwargs(self):
+        """
+        Test the update method with keyword arguments.
+        """
+        self.square.update(id=4, size=6, x=7, y=8)
+        self.assertEqual(str(self.square), '[Square] (4) 7/8 - 6')
 
 
 if __name__ == '__main__':
