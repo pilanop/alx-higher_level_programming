@@ -91,3 +91,23 @@ class Square(Rectangle):
                     self.y = value
                 if key == "x":
                     self.x = value
+
+    def to_dictionary(self):
+        """
+        Convert the Square object to a dictionary.
+
+        Returns:
+            dict: A dictionary representation of the Square object with the
+                  following keys:
+                - "id" (int): The unique identifier of the Square.
+                - "size" (int): The size of the Square.
+                - "x" (int): The x-coordinate
+                - "y" (int): The y-coordinate
+        """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+
