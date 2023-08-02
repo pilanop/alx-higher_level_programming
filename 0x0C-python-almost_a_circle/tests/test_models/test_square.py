@@ -93,5 +93,26 @@ class TestSquare_update(unittest.TestCase):
         self.assertEqual(str(self.square), '[Square] (4) 7/8 - 6')
 
 
+class TestSquare_to_dictionary(unittest.TestCase):
+    """
+    14. Square instance to dictionary representation
+    A TestCase for the Square class to_dictionary method.
+    """
+
+    def setUp(self):
+        """
+        Set up a new Square instance before each test.
+        """
+        self.square = Square(5, 1, 2, 3)
+
+    def test_to_dictionary_method(self):
+        """
+        Test the to_dictionary method.
+        """
+        d = self.square.to_dictionary()
+        self.assertEqual(d, {'id': 3, 'size': 5, 'x': 1, 'y': 2})
+        self.assertIsInstance(d, dict)
+
+
 if __name__ == '__main__':
     unittest.main()
