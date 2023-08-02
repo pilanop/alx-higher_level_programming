@@ -13,6 +13,7 @@ class TestRectangle(unittest.TestCase):
     """
     Unit tests for the Rectangle class.
     """
+
     def setUp(self):
         self.rect1 = Rectangle(5, 6)
         self.rect2 = Rectangle(7, 8, 1, 2, 10)
@@ -46,6 +47,7 @@ class TestRectangle_Validate_Attributes(unittest.TestCase):
     This class contains unit tests for validating the attributes of the
     Rectangle class.
     """
+
     def test_invalid_width(self):
         with self.assertRaises(TypeError):
             Rectangle("not a number", 5)
@@ -76,6 +78,7 @@ class TestRectangle_Area_First(unittest.TestCase):
     4. Area first
     Unit tests for the `TestRectangle_Area_First` class.
     """
+
     def setUp(self):
         self.rect1 = Rectangle(5, 6)
         self.rect2 = Rectangle(7, 8, 1, 2, 10)
@@ -92,6 +95,7 @@ class TestRectangle_Display0(unittest.TestCase):
     """
     Unit test for the `display` method in the `Rectangle` class.
     """
+
     def setUp(self):
         self.rect1 = Rectangle(3, 2)
         self.rect2 = Rectangle(6, 4)
@@ -172,6 +176,50 @@ class TestRectangle_Display1(unittest.TestCase):
 
     def tearDown(self):
         sys.stdout = self.saved_stdout
+
+
+class TestRectangle_Update0(unittest.TestCase):
+    """
+    Unit test for the `update` method in the `Rectangle` class.
+    """
+
+    def setUp(self):
+        self.rect1 = Rectangle(5, 6)
+        self.rect2 = Rectangle(7, 8, 1, 2, 10)
+
+    def test_update(self):
+        # Update some attributes
+        self.rect1.update(89, 2, 3)
+        self.assertEqual(self.rect1.id, 89)
+        self.assertEqual(self.rect1.width, 2)
+        self.assertEqual(self.rect1.height, 3)
+
+        # Update all attributes
+        self.rect2.update(99, 2, 3, 4, 5)
+        self.assertEqual(self.rect2.id, 99)
+        self.assertEqual(self.rect2.width, 2)
+        self.assertEqual(self.rect2.height, 3)
+        self.assertEqual(self.rect2.x, 4)
+        self.assertEqual(self.rect2.y, 5)
+
+    def test_update_no_args(self):
+        # No operational change expected as no arguments passed
+        original_id = self.rect1.id
+        original_width = self.rect1.width
+        original_height = self.rect1.height
+        original_x = self.rect1.x
+        original_y = self.rect1.y
+
+        self.rect1.update()
+
+        self.assertEqual(self.rect1.id, original_id)
+        self.assertEqual(self.rect1.width, original_width)
+        self.assertEqual(self.rect1.height, original_height)
+        self.assertEqual(self.rect1.x, original_x)
+        self.assertEqual(self.rect1.y, original_y)
+
+    def tearDown(self):
+        pass
 
 
 if __name__ == "__main__":
