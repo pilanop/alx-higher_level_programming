@@ -57,3 +57,37 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Updates the attributes of the Square instance.
+
+        Args:
+            *args: Non-keyword arguments that correspond to the attributes
+                    of the Square instance. The order of the arguments
+                   should be: id, size, x, y.
+            **kwargs: Keyword arguments that correspond to the attributes
+                    of the Square instance. The available attribute
+                      keys are: ["id", "size", "x", "y"].
+
+        """
+        if args is not None and len(args) > 0:
+            for i in args:
+                if args.index(i) == 0:
+                    self.id = i
+                if args.index(i) == 1:
+                    self.size = i
+                if args.index(i) == 2:
+                    self.x = i
+                if args.index(i) == 3:
+                    self.y = i
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "y":
+                    self.y = value
+                if key == "x":
+                    self.x = value
