@@ -13,7 +13,7 @@ class Rectangle(Base):
 
     Methods:
         width.setter: Sets the width of the rectangle.
-        height.setter: Sets the height of the rectangle.
+        height.setter: Set the height of the rectangle.
         x.setter: Sets the x-coordinate of the rectangle.
         y.setter: Sets the y-coordinate of the rectangle.
 
@@ -26,8 +26,8 @@ class Rectangle(Base):
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
-            x (int, optional): The x-coordinate. Defaults to 0.
-            y (int, optional): The y-coordinate. Defaults to 0.
+            x (int, optional): The x-coordinate. Default to 0.
+            y (int, optional): The y-coordinate. Default to 0.
             id (int, optional): The id of the rectangle. Defaults to None.
         """
         super().__init__(id)
@@ -219,3 +219,23 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
+
+    def to_dictionary(self):
+        """
+        Converts the Rectangle object to a dictionary representation
+
+        Returns:
+            dict: A dictionary with the following key-value pairs:
+                - "id": The id of the rectangle
+                - "width": The width of the rectangle
+                - "height": The height of the rectangle
+                - "x": The x-coordinate
+                - "y": The y-coordinate
+        """
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
