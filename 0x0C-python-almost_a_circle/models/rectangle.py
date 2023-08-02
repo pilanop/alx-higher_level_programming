@@ -18,6 +18,7 @@ class Rectangle(Base):
         y.setter: Sets the y-coordinate of the rectangle.
 
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initializes a new instance of the Rectangle class.
@@ -168,3 +169,28 @@ class Rectangle(Base):
     def __str__(self):
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} -"
                 f" {self.__width}/{self.__height}")
+
+    def update(self, *args):
+        """
+        Update the attributes of the Rectangle.
+
+        Args:
+            *args: Variable number of arguments to update the attributes.
+                The arguments should be provided in the following order:
+                1. id (int): The new value for the id attribute.
+                2. width (int): The new value for the width attribute.
+                3. height (int): The new value for the height attribute.
+                4. x (int): The new value for the x attribute.
+                5. y (int): The new value for the y attribute.
+        """
+        for i in args:
+            if args.index(i) == 0:
+                self.id = i
+            if args.index(i) == 1:
+                self.__width = i
+            if args.index(i) == 2:
+                self.__height = i
+            if args.index(i) == 3:
+                self.__x = i
+            if args.index(i) == 4:
+                self.__y = i
