@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Defines unittests for models/base.py.
+Defines unittests for models/rectangle.py.
 """
 from io import StringIO
 import sys
@@ -75,7 +75,7 @@ class TestRectangle_Validate_Attributes(unittest.TestCase):
 
 class TestRectangle_Area_First(unittest.TestCase):
     """
-    4. Area first
+    4. Area-first
     Unit tests for the `TestRectangle_Area_First` class.
     """
 
@@ -267,6 +267,26 @@ class TestRectangle_Update_Kwargs(unittest.TestCase):
 
     def tearDown(self):
         pass
+
+
+class TestRectangle_to_dictionary(unittest.TestCase):
+    """
+    13. Rectangle instance to dictionary representation
+    Tests for the to_dictionary method of the Rectangle class.
+    """
+
+    def setUp(self):
+        """
+        Set up for the tests.
+        """
+        self.rectangle = Rectangle(10, 15, 20, 25, 30)
+
+    def test_to_dictionary_output(self):
+        """
+        Test the output of the to_dictionary method.
+        """
+        expected_output = dict(id=30, width=10, height=15, x=20, y=25)
+        self.assertEqual(self.rectangle.to_dictionary(), expected_output)
 
 
 if __name__ == "__main__":
