@@ -36,5 +36,32 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.square.id, 3)
 
 
+class TestSquare_size(unittest.TestCase):
+    """
+    A TestCase for the Square class size getter and setter.
+    """
+    def setUp(self):
+        """
+        Set up a new Square instance before each test.
+        """
+        self.square = Square(5, 1, 2, 3)
+
+    def test_getter_setter_size(self):
+        """
+        Test the size setter and getter.
+        """
+        self.square.size = 7
+        self.assertEqual(self.square.size, 7)
+        self.assertEqual(self.square.width, 7)
+        self.assertEqual(self.square.height, 7)
+
+    def test_setter_size_type_error(self):
+        """
+        Test if setting size with an incorrect type raises a TypeError.
+        """
+        with self.assertRaises(TypeError):
+            self.square.size = "not an int"
+
+
 if __name__ == '__main__':
     unittest.main()
