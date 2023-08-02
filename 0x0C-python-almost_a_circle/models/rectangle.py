@@ -167,30 +167,55 @@ class Rectangle(Base):
             print("")
 
     def __str__(self):
+        """
+        Returns the string representation of the Rectangle object.
+
+        Returns:
+            str: The string representation of the Rectangle object.
+        """
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} -"
                 f" {self.__width}/{self.__height}")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        Update the attributes of the Rectangle.
+        Updates the attributes of a Rectangle.
 
         Args:
-            *args: Variable number of arguments to update the attributes.
-                The arguments should be provided in the following order:
-                1. id (int): The new value for the id attribute.
-                2. width (int): The new value for the width attribute.
-                3. height (int): The new value for the height attribute.
-                4. x (int): The new value for the x attribute.
-                5. y (int): The new value for the y attribute.
+            *args: Variable length argument list. The first argument, if
+            present, updates the id attribute.
+                The second argument, if present, updates the width attribute.
+                The third argument, if present, updates the height attribute.
+                The fourth argument, if present, updates the x attribute.
+                The fifth argument, if present, updates the y attribute.
+            **kwargs: Arbitrary keyword arguments. The key specifies the
+            attribute to update:
+                - "id": Updates the id attribute.
+                - "width": Updates the width attribute.
+                - "height": Updates the height attribute.
+                - "x": Updates the x attribute.
+                - "y": Updates the y attribute.
         """
-        for i in args:
-            if args.index(i) == 0:
-                self.id = i
-            if args.index(i) == 1:
-                self.__width = i
-            if args.index(i) == 2:
-                self.__height = i
-            if args.index(i) == 3:
-                self.__x = i
-            if args.index(i) == 4:
-                self.__y = i
+        if args is not None and len(args) > 0:
+            for i in args:
+                if args.index(i) == 0:
+                    self.id = i
+                if args.index(i) == 1:
+                    self.__width = i
+                if args.index(i) == 2:
+                    self.__height = i
+                if args.index(i) == 3:
+                    self.__x = i
+                if args.index(i) == 4:
+                    self.__y = i
+        else:
+            for key, value in kwargs.items():
+                if key == "width":
+                    self.__width = value
+                if key == "height":
+                    self.__height = value
+                if key == "id":
+                    self.id = value
+                if key == "x":
+                    self.__x = value
+                if key == "y":
+                    self.__y = value
