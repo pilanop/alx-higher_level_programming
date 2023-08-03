@@ -6,8 +6,6 @@ Defines a class Base
 import json
 import os
 
-import models.rectangle
-
 
 class Base:
     """
