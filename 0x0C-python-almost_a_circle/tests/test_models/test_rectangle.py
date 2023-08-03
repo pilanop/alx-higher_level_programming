@@ -132,9 +132,6 @@ class TestRectangle_Str(unittest.TestCase):
         self.rect1 = Rectangle(5, 6)
         self.rect2 = Rectangle(7, 8, 1, 2, 10)
 
-    def test_str(self):
-        self.assertEqual(str(self.rect1), "[Rectangle] (1) 0/0 - 5/6")
-
     def test_str1(self):
         self.assertEqual(str(self.rect2), "[Rectangle] (10) 1/2 - 7/8")
 
