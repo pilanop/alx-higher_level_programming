@@ -3,6 +3,8 @@
 Defines a class Base
 """
 
+import json
+
 
 class Base:
     """
@@ -12,7 +14,7 @@ class Base:
         __nb_objects (int): The number of base objects created.
 
     Methods:
-        __init__(self, id=None): Initializes a new base object.
+        __init__(self, id=None): Initialize a new base object.
     """
     __nb_objects = 0
 
@@ -33,3 +35,19 @@ class Base:
             self.id = self.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Converts a list of dictionaries to a JSON string representation.
+
+        Args:
+            list_dictionaries (list[dict]): A list of dictionaries to be
+            converted to a JSON string.
+
+        Returns:
+            str: The JSON string representation of the list of dictionaries.
+        """
+        if not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
