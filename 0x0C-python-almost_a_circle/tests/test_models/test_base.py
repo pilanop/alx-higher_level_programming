@@ -2,7 +2,7 @@
 """
 Defines unittests for models/base.py.
 """
-
+import json
 import unittest
 from models.base import Base
 
@@ -26,5 +26,27 @@ class TestBase(unittest.TestCase):
         pass
 
 
-if __name__ == "__main__":
+class TestBase_to_json_string(unittest.TestCase):
+    """
+    15. Dictionary to JSON string
+    A TestCase for the Base class 'to_json_string' static method.
+    """
+
+    def test_to_json_string(self):
+        # Test with an actual list of dictionaries
+        d = [{"id": 12, "width": 5, "height": 7, "x": 2, "y": 8}]
+        json_d = Base.to_json_string(d)
+        self.assertIsInstance(json_d, str)
+        self.assertDictEqual(json.loads(json_d)[0], d[0])
+
+    def test_empty_list(self):
+        # Test with an empty list
+        self.assertEqual(Base.to_json_string([]), "[]")
+
+    def test_None_list(self):
+        # Test with None
+        self.assertEqual(Base.to_json_string(None), "[]")
+
+
+if __name__ == '__main__':
     unittest.main()
