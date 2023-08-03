@@ -83,5 +83,32 @@ class TestBase_save_to_file(unittest.TestCase):
             os.remove("Square.json")
 
 
+class TestBase_from_json_string(unittest.TestCase):
+    """
+    17. JSON string to dictionary
+    A TestCase for the Base class 'from_json_string' static method.
+    """
+
+    def test_from_json_string(self):
+        # Test with an actual JSON string
+        json_d = '[{"id": 12, "width": 5, "height": 7, "x": 2, "y": 8}]'
+        d = Base.from_json_string(json_d)
+        self.assertIsInstance(d, list)
+        self.assertDictEqual(d[0], {"id": 12, "width": 5, "height": 7, "x": 2, "y": 8})
+
+    def test_empty_string(self):
+        # Test with an empty string
+        self.assertEqual(Base.from_json_string(""), [])
+
+    def test_None_string(self):
+        # Test with None
+        self.assertEqual(Base.from_json_string(None), [])
+
+    def test_non_json_string(self):
+        # Test with string that's not in JSON format
+        with self.assertRaises(ValueError):
+            Base.from_json_string('{id: 12, width: 5, height: 7, x: 2, y: 8}')
+
+
 if __name__ == '__main__':
     unittest.main()
