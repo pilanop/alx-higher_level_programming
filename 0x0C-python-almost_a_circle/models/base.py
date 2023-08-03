@@ -4,6 +4,9 @@ Defines a class Base
 """
 
 import json
+import os
+
+import models.rectangle
 
 
 class Base:
@@ -100,4 +103,16 @@ class Base:
             else:
                 new = cls(1)
             new.update(**dictionary)
+            return new
+
+    @classmethod
+    def load_from_file(cls):
+        filename = f"{cls.__name__}.json"
+        new = []
+        if not os.path.exists(filename):
+            return new
+        with open(filename, 'r', encoding="utf8") as file:
+            dict_list = cls.from_json_string(file.read())
+            for i in dict_list:
+                new.append(cls.create(**i))
             return new
