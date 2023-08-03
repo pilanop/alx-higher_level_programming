@@ -81,3 +81,20 @@ class Base:
         if not json_string:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Creates a new instance of the class using the provided dictionary.
+
+        Args:
+            **dictionary: A dictionary containing the parameters for creating
+                    the instance.
+
+        Returns:
+            The newly created instance.
+        """
+        from models.rectangle import Rectangle
+        dummy_r = Rectangle(2, 3)
+        dummy_r.update(**dictionary)
+        return dummy_r
