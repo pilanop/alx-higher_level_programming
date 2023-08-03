@@ -54,6 +54,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """
+        This class method saves a list of objects to a JSON file.
+        Args:
+            list_objs: A list of objects to be saved to a file.
+        """
         filename = f"{cls.__name__}.json"
         with open(filename, 'w', encoding="utf8") as jsonfile:
             if list_objs is None:
