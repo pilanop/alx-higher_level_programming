@@ -94,7 +94,10 @@ class Base:
         Returns:
             The newly created instance.
         """
-        from models.rectangle import Rectangle
-        dummy_r = Rectangle(2, 3)
-        dummy_r.update(**dictionary)
-        return dummy_r
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+            new.update(**dictionary)
+            return new
