@@ -1,4 +1,4 @@
-#!/Users/khalidmohammed/.nvm/versions/node/v18.17.0/bin/node
+#!/usr/bin/node
 const argLength = process.argv.length;
 if (argLength === 2) {
   console.log('No argument');
