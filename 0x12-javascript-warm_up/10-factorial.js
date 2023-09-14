@@ -1,4 +1,4 @@
-#!/Users/khalidmohammed/.nvm/versions/node/v18.17.0/bin/node
+#!/usr/bin/node
 const arg = process.argv;
 
 function factorial (n) {
