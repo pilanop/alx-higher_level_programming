@@ -1,9 +1,9 @@
-#!/usr/bin/node
+#!/Users/khalidmohammed/.nvm/versions/node/v18.17.0/bin/node
 const arg = process.argv;
 const newArg = arg.slice(2);
-const parsedArg = []
+const parsedArg = [];
 for (let i = 0; i < newArg.length; i++) {
-   parsedArg.push(parseInt(newArg[i]));
+  parsedArg.push(parseInt(newArg[i]));
 }
 parsedArg.sort();
 if (arg.length <= 3) {
